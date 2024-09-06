@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vpromc
+  labels:
+    app: vpromc
+spec:
+  selector:
+    matchLabels:
+      app: vpromc
+  replicas: 1
+  template:
+    metadata:
+      labels:            # Fixed 'lables' to 'labels'
+        app: vpromc
+    spec:
+      containers:
+        - name: vpromc   # Added space after "-" and fixed indentation
+          image: memcached
+          ports:
+            - name: vpromc-port  # Fixed indentation
+              containerPort: 11211
